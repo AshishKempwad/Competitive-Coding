@@ -10,3 +10,6 @@ Contains all codes from hackerrank,codechef,leetcode,interviewbit,etc
 
 4)Set ith bit - EASY -Coding Ninjas - (Bit manipulation,alternate for power of 2)
   Problem :(You are given two integers N and i. You need to make ith bit of binary representation of N to 1 and return the   updated N.Counting of bits start from 0 from right to left.)
+  
+5)Unset ith bit - EASY - Coding Ninjas 
+  Problem : (You are given two integers N and i. You need to make ith bit of binary representation of N to 0 and return the updated N.)
