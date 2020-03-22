@@ -15,3 +15,5 @@ Contains all codes from hackerrank,codechef,leetcode,interviewbit,etc
   Problem : (You are given two integers N and i. You need to make ith bit of binary representation of N to 0 and return the updated N.)
   
 6)Flip the ith bit - EASY - Coding Ninjas - (Learnt the use of Xor property to flip a bit)  
+
+7)Find number is even or odd -EASY - Coding Ninjas- (optimized way of finding number is even or odd)
