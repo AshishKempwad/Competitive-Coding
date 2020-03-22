@@ -17,3 +17,6 @@ Contains all codes from hackerrank,codechef,leetcode,interviewbit,etc
 6)Flip the ith bit - EASY - Coding Ninjas - (Learnt the use of Xor property to flip a bit)  
 
 7)Find number is even or odd -EASY - Coding Ninjas- (optimized way of finding number is even or odd)
+
+8)Find first set bit - EASY - Coding Ninjas - (Learnt the helpfulness of bitwise & operator in finding the smallest set bit)
+Problem: You are given an integer N. You need to return an integer M, in which only one bit is set which at position of lowest set bit of N (from right to left).
