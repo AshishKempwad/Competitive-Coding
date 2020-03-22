@@ -14,4 +14,4 @@ Contains all codes from hackerrank,codechef,leetcode,interviewbit,etc
 5)Unset ith bit - EASY - Coding Ninjas 
   Problem : (You are given two integers N and i. You need to make ith bit of binary representation of N to 0 and return the updated N.)
   
-6)Flip the ith bit - EASY - Coding Ninjas - (Best use of Xor property)  
+6)Flip the ith bit - EASY - Coding Ninjas - (Learnt the use of Xor property to flip a bit)  
