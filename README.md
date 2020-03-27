@@ -23,3 +23,6 @@ Problem: You are given an integer N. You need to return an integer M, in which o
 
 9)Turn off 1st set bit - EASY - Coding Ninjas 
 Problem :You are given an integer Ni. You need to make first set bit of binary representation of N to 0 and return the updated N.Counting of bits start from 0 from right to left.
+
+10) Equilize - EASY - Codeforces
+   Link to problem : https://codeforces.com/problemset/problem/1037/C
