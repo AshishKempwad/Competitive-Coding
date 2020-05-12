@@ -29,3 +29,4 @@ Problem :You are given an integer Ni. You need to make first set bit of binary r
    
 11)Trapping Rainwater -EASY
 Link : https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1/?track=SPCF-Arrays&batchId=154
+TC:O(n) , SC: O(n)
