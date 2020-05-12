@@ -26,3 +26,6 @@ Problem :You are given an integer Ni. You need to make first set bit of binary r
 
 10) Equilize - EASY - Codeforces
    Link to problem : https://codeforces.com/problemset/problem/1037/C
+   
+11)Trapping Rainwater -EASY
+Link : https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1/?track=SPCF-Arrays&batchId=154
