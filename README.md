@@ -30,4 +30,5 @@ Problem :You are given an integer Ni. You need to make first set bit of binary r
 11)Trapping Rainwater -EASY
 Link : https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1/?track=SPCF-Arrays&batchId=154
 TC:O(n) , SC: O(n)
+
 NOTE: https://leetcode.com/articles/trapping-rain-water/# - Here, Approach 4, using 2 pointers has been given in great manner. This method solves the problem in O(1) space complexity.
