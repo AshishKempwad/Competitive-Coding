@@ -35,7 +35,7 @@ vector<int> longestCommonSubsequence(vector<int> a, vector<int> b)
     int i=n;
     int j=m;
     vector<int>res;
-    while(i>0 || j>0)
+    while(i>0 && j>0)
     {
         if(a[i-1]==b[j-1])
         {
