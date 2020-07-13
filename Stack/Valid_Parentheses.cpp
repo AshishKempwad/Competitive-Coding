@@ -21,7 +21,7 @@ public:
           {
               st.push(s[i]);
           }
-          else
+          else if(s[i]==')' || s[i]==']' || s[i]=='}')
           {
               if(st.empty())
               {
