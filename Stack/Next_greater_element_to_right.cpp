@@ -1,3 +1,5 @@
+//Using this code various variations can be done.
+
 vector <long long> nextLargerElement(long long arr[], int n)
 {
     vector<long long> ans;
