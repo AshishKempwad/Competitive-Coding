@@ -2,11 +2,11 @@ queue<long long int> rev(queue<long long int> q)
 {
     long long int n = q.size();
     stack<long long int> s;
-    for(long long int i =0;i<n;i++)
-    {
-        s.push(q.front());
-        q.pop();
-    }
+   while(!q.empty())
+   {
+       s.push(q.front());
+       q.pop();
+   }
     
     while(!s.empty())
     {
