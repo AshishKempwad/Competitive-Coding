@@ -7,6 +7,9 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+
+//Recursive way
 TreeNode* Solution::invertTree(TreeNode* A)
 {
     if(A==NULL)
@@ -17,5 +20,27 @@ TreeNode* Solution::invertTree(TreeNode* A)
     invertTree(A->right);
     swap(A->left,A->right);
     
+    return A;
+}
+
+
+//Iterative way
+
+void invert(TreeNode *root)
+{
+    if(!root)
+        return;
+    
+    TreeNode *temp = root->left;
+    root->left = root->right;
+    root->right = temp;
+    
+    invert(root->left);
+    invert(root->right);
+}
+ 
+TreeNode* Solution::invertTree(TreeNode* A) 
+{
+    invert(A);
     return A;
 }
