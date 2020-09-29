@@ -1,9 +1,9 @@
-This question is known by the name of strstr.
+/*This question is known by the name of strstr.
 
 Given : Text (A long text)
         Pattern (We need to match this with the text. It is normally smaller than the text)
 
-OUTOUT : Return the index where pattern entirely matches with the text(index of text)
+OUTOUT : Return the index where pattern entirely matches with the text(index of text)*/
 
 
 
