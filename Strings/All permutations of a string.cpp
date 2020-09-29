@@ -13,3 +13,21 @@ void permutate(string s , int l,int h,vector<string>&res)
     }
 }
 
+vcetor<int>permutate_all_strings(string s)
+{
+    if(s.size()==0)
+    {
+        return {};
+    }
+    vector<int>res;
+    if(s.size()==1)
+    {
+        res.push_back(s);
+        return res;
+    }    
+    
+    permutate(s,0,s.size()-1,res);
+    return res;
+        
+}    
+
