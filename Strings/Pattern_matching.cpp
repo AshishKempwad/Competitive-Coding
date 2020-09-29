@@ -9,6 +9,7 @@ OUTOUT : Return the index where pattern entirely matches with the text(index of 
 
 //Naive String Matching
 // TC = O((n-m+1)*m)  It is quadratic time solution.
+//SC : O(constant)
 
 void strstr(string A, string B)
 {
@@ -45,6 +46,7 @@ void strstr(string A, string B)
 //Improved Naive
 // IMP: (If the pattern given has distinct characters then it can be done in linear time using naive approach)
 // TC : Theta(n);
+//SC : O(constant)
 
 
 void strstr(string A, string B)
@@ -86,6 +88,8 @@ void strstr(string A, string B)
 
 
 //KMP Algorithm
+//TC = O(n)
+//SC = O(m)
 
 //Phase 1: LPS array creation
 //Phase 2: Applying KMP using LPS array
