@@ -13,12 +13,12 @@
     long n_sum = n*(n+1)/2;
     long n_prod = n*(n+1)*(2*n+1)/6;
     
-    long eq1 = A_sum - n_sum;
-    long eq2 = A_prod - n_prod;
+    long eq1 = A_sum - n_sum;        //x-y
+    long eq2 = A_prod - n_prod;     //x^2 - y^2
     
     long diff = eq1;
     
-    long eq3 = eq2/eq1;
+    long eq3 = eq2/eq1;    // (x^2 -y^2)/(x -y) == (x+y)
 
     
     long dup = (eq1 + eq3)/2;
