@@ -33,16 +33,16 @@ Output 2:
 
 
 //Brute Force : It would require, TC = O(M*N)*(M+N)
-                                  SC = O(1)
+                                  //SC = O(1)
                                   
-                                  Approach: 1)Traverse the entire matrix and wherever you find any '0' make its entire row and col as '-1'
-                                            2) Traverse the entire matrix and wherever we see -1 make it as 0.  
+                                  /*Approach: 1)Traverse the entire matrix and wherever you find any '0' make its entire row and col as '-1'
+                                            2) Traverse the entire matrix and wherever we see -1 make it as 0.  */
                                             
 ------------------------------------------------------------------------------------------------------------------------------------------                                            
 
 //Better Approach :
-                   TC = O(M*N)
-                   SC = O(M+N)
+                   //TC = O(M*N)
+                   //SC = O(M+N)
                    
 void setzero(vector<vector<int> > &A)
 {
@@ -78,7 +78,7 @@ void setzero(vector<vector<int> > &A)
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 //Optimal solution: TC = O(N*M)
-                    SC = O(1)
+                    //SC = O(1)
 
 void Solution::setZeroes(vector<vector<int> > &A)
 {
