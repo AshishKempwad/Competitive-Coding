@@ -1,4 +1,9 @@
-   vector<map<int,int>>row(9);
+ //IMPORTANT:
+
+//map<int,int>mp[10] means vector<map<int,int>>mp(10)
+
+
+vector<map<int,int>>row(9);
         vector<map<int,int>>col(9);
         vector<map<int,int>>grid(9);
         
