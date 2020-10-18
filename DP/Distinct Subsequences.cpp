@@ -1,7 +1,7 @@
 int Solution::numDistinct(string A, string B)
 {
     int n = A.size();
-    int m=B.size();
+    int m = B.size();
     
     int dp[n+1][m+1];
     
