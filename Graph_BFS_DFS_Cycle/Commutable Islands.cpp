@@ -51,6 +51,9 @@ Explanation 2:
     We can choose bridges (1, 2, 1), (2, 3, 2) and (1, 4, 3), where the total cost incurred will be (1 + 2 + 3) = 6
 
 */
+
+//TC=(ElogV)
+
 int Solution::solve(int A, vector<vector<int> > &B)
 {
     vector<vector<pair<int,int>>>graph(A+1);
