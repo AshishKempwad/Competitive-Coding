@@ -52,15 +52,15 @@ bool cmp(const vector<int>&A,const vector<int>&B)  //sorting based on the end ti
 
 int Solution::solve(vector<vector<int> > &A)
 {
-    sort(A.begin(),A.end(),cmp);
+    sort(A.begin(),A.end(),cmp);  //we sort based on the ending time of the interval
     int count=1;
    int endtime = A[0][1];
     for(int i = 1 ; i < A.size() ; i++)
     {
-        if(A[i][0] > endtime)
+        if(A[i][0] > endtime)   //if start time of next interval is greater than end time of current interval then we increment that as that would be a disjoint set
         {
-        count++;
-        endtime = A[i][1];
+          count++;
+          endtime = A[i][1];  //update new endtime
         }
     }
     return count;
