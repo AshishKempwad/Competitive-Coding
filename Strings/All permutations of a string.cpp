@@ -7,6 +7,9 @@ Below are the permutations of string ABC.
 ABC ACB BAC BCA CBA CAB
 */
 
+//Algorithm Paradigm: Backtracking
+//Time Complexity: O(n*n!) Note that there are n! permutations and it requires O(n) time to print a a permutation.
+
 void permutate(string s , int l,int h,vector<string>&res)
 {
     if(l == h)
