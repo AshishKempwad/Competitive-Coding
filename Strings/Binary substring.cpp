@@ -4,6 +4,8 @@ For example, if the input string is “00100101”, then there are three substri
 Task is fining the solution in O(n) time complexity
 */
 
+//Brute force
+//Tc=O(n^2)
 #include<iostream>    
 using namespace std;  
   
@@ -23,4 +25,22 @@ for (int i=0; str[i] !='\0'; i++)
         }  
 }  
 return res;  
+} 
+
+----------------------------------------------------------------------------------------------------
+  //Optimized solution
+  //TC=o(n)
+  int countSubStr(char str[]) 
+{ 
+   int m = 0; // Count of 1's in input string 
+  
+   // Traverse input string and count of 1's in it 
+   for (int i=0; str[i] !='\0'; i++) 
+   { 
+        if (str[i] == '1') 
+           m++; 
+   } 
+  
+   // Return count of possible pairs among m 1's 
+   return m*(m-1)/2; 
 } 
