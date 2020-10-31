@@ -38,7 +38,8 @@ public:
         {
             int end = preprocess[s[i]-'a'];
             int j=i;
-            // If we find any character between the start and end of the character choosen, then see if                                                      //it lies in that range or in case it extends that range, we also extend(update) our range
+            // If we find any character between the start and end of the character choosen, then see if   
+           //it lies in that range or in case it extends that range, we also extend(update) our range
             while(j<end) 
             {
                 end = max(end,preprocess[s[j]-'a']);  
