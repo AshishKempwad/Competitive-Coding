@@ -39,6 +39,14 @@ Output: [1]
 //TC = O(n)
 // SC = O(1)
 
+ 
+ /* 
+  STEPS OF ALGO :
+  1) Find element from right side such that A[i] < A[i+1]
+  2)If not found reverse and return (corner case)
+  3)Again traverse from right to find the element greater than the element choose in first step.(find element such that A[i] < A[l]) and swap them i.e swap(A[i],A[l])
+  4)Reverse all the elements ahead of A[i] and return
+  */
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) 
