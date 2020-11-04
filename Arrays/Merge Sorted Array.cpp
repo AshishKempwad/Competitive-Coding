@@ -15,7 +15,8 @@ Modified A : [1 5 6 8 9]
 
 void Solution::merge(vector<int> &A, vector<int> &B)
 {
-    
+    //TC=O(n*logn)
+     //SC=O(1)
     //Using gap method
     //Watch : https://www.youtube.com/watch?v=hVl2b3bLzBw
    int n = A.size();
@@ -47,3 +48,35 @@ void Solution::merge(vector<int> &A, vector<int> &B)
        gap=gap/2;
    }
 }
+
+-----------------------------------------------------------------------------------
+ 
+ 
+ //TC = O(n+m)
+ //SC=O(1)
+ class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
+    {
+        int i=m-1;
+        int j=n-1;
+        int k=m+n-1;
+        
+        while(i>=0 && j>=0)
+        {
+            if(nums1[i] > nums2[j])
+            {
+                nums1[k--]=nums1[i--];
+            }
+            else
+            {
+                nums1[k--]=nums2[j--];
+            }
+        }
+        
+        while(j>=0)
+        {
+            nums1[k--]=nums2[j--];
+        }
+    }
+};
