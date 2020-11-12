@@ -41,3 +41,31 @@ public:
         return -1;
     }
 };
+--------------------------------------------------------
+   //Without using extra space of vector 
+ class Solution {
+public:
+    
+    void inorder(TreeNode* root,int &k,int &ele)
+    {
+        if(root)
+        {
+            inorder(root->left,k,ele);
+            k--;
+            if(k==0)
+            {
+               ele = root->val;
+            }
+            inorder(root->right,k,ele);
+        }
+    }
+    
+    
+    int kthSmallest(TreeNode* root, int k)
+    {
+        int ele=0;
+        inorder(root,k,ele);   
+        return ele;
+    }
+};
+   
