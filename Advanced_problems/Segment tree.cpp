@@ -17,7 +17,7 @@ void build(int index,int low,int high)
     int mid = (high+low)/2;   // we get the index
     build(2*index+1,low,mid);  // left node is 2*index+1
     build(2*index+2,mid+1,high);   // right node is 2*index+2
-    seg[index] = max(seg[2*index+1],seg[2*index+2]);  // here we store the max in segment tree
+    seg[index] = seg[2*index+1]+seg[2*index+2];  // here we store the max in segment tree
     
 }
 
@@ -46,7 +46,28 @@ int query(int index,int low,int high,int l,int r)
     
 }
 
-
+void pointupdate(int index,int low,int high,int node,int val)   // for single node value update
+{
+    if(low==high)
+    {
+        seg[low]=seg[low]+val;
+    }
+    else
+    {
+        int mid = (low+high)/2;
+        if(node<=mid && node>=low)
+        {
+            pointupdate(2*index+1,low,mid,node,val);
+        }
+        else
+        {
+            pointupdate(2*index+2,mid+1,high,node,val);
+        }
+        
+        seg[index]=seg[2*index+1]+seg[2*index+2];
+    }
+    // cout<<seg[index]<<endl;
+}
 
 int main()
 {
@@ -57,6 +78,7 @@ int main()
         cin>>arr[i];
     }
     build(0,0,n-1);   // (start index,start of arr,end of arr)
+    pointupdate(0,0,n-1,9,500);
     int q;
     cin>>q;    // no of queries
     while(q--)
@@ -65,6 +87,7 @@ int main()
         cin>>l>>r;   // range
         cout<<query(0,0,n-1,l,r)<<endl;   // (index,start,end,query range start,query range end)
     }
+    
     
 	return 0;
 }
