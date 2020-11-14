@@ -54,7 +54,7 @@ int main()
     cin>>n;
     for(int i=0;i<n;i++)
     {
-        arr[i];
+        cin>>arr[i];
     }
     build(0,0,n-1);   // (start index,start of arr,end of arr)
     int q;
