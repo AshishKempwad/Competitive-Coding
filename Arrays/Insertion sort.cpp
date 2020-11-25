@@ -1,12 +1,16 @@
-void insertionSort(int *array, int size) {
-   int key, j;
-   for(int i = 1; i<size; i++) {
-      key = array[i];//take value
-      j = i;
-      while(j > 0 && array[j-1]>key) {
-         array[j] = array[j-1];
-         j--;
-      }
-      array[j] = key;   //insert in right place
-   }
+void insertionSort(std::vector<int> &list)
+{
+    // Iterate through the list
+    for (unsigned int i = 1; i < list.size(); i++) {
+        int elem = list[i];
+        int j    = i - 1;
+
+        // Compare elem with the elements before it, and swap if necessary. 
+        // Swapping is done by repeatedly moving the elements one unit back.
+        while (j >= 0 and list[j] > elem) {
+            list[j + 1] = list[j]; 
+            j--;
+        }
+        list[j + 1] = elem;
+    }
 }
