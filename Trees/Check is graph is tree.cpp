@@ -35,18 +35,19 @@ bool DFSrec(vector<int> adj[],vector<bool>&vis,int start,int parent)
 bool isCyclic(vector<int> adj[],int V)
 {
     
-    vector<bool>vis(V,0);
-    for(int i=0;i<V;i++)
+    vector<bool>vis(V,0);    
+    if(DFSrec(adj,vis,0,-1)==true)   
+    {
+        return false; //cycle exists
+    }
+    
+    for(int i=0;i<V;i++)   // if not connected we return false
     {
         if(vis[i]==0)
         {
-            if(DFSrec(adj,vis,i,-1)==true)
-            {
-                return false; //cycle exists
-            }
+            return false;
         }
-    }
-    
+    }   
     return true; //cycle doesnt exist
     // Your code here
 }
