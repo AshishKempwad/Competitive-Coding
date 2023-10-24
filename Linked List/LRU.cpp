@@ -115,3 +115,93 @@ void LRUCache::set(int key, int value)
     }
 
 }
+
+/////Using DLL + unordered_map
+
+class LRUCache {
+public:
+   
+   class node{
+       public:
+         int key;
+         int val;
+         node * next;
+         node * prev;
+
+         node(int _key, int _val){
+             key=_key;
+             val=_val;
+         }
+   };
+   unordered_map<int,node*>mp;
+   int cachesize;
+   node* head = new node(-1,-1);
+   node* tail = new node(-1,-1);
+
+    LRUCache(int capacity) {
+        cachesize=capacity;
+        head->next=tail;
+        tail->prev=head;
+    }
+
+
+    void addnode(node* curr){
+        node* dummy = head->next;
+        curr->next=dummy;
+        curr->prev=head;
+        dummy->prev=curr;
+        head->next=curr;
+
+    }
+
+    void deletenode(node* curr){
+        node* prevnode = curr->prev;
+        node* nexnode = curr->next;
+
+        prevnode->next=nexnode;
+        nexnode->prev=prevnode;
+
+    }
+    int get(int key) {
+
+        if(mp.find(key)!=mp.end()){
+            node* resnode = mp[key];
+            int res = resnode->val;
+            mp.erase(key);
+            deletenode(resnode);
+            addnode(resnode);
+            mp[key]=head->next;
+            return res;
+
+        }
+        else{
+            return -1;
+        }
+  
+ 
+    }
+    
+    void put(int key, int value) {
+        if(mp.find(key)!=mp.end()){
+            node* existingnode = mp[key];
+            deletenode(existingnode);
+            mp.erase(key);
+        }
+        if(mp.size()==cachesize){
+            node* todelete = mp[tail->prev->key];
+            mp.erase(tail->prev->key);
+            deletenode(todelete);   
+        }
+        addnode(new node(key,value));
+        mp[key]=head->next;
+
+    }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
+
