@@ -54,7 +54,7 @@ public:
         
         for(auto &x : mp)
         {
-            pq.push({x.second,x.first});   //push {string,frequncy}
+            pq.push({x.second,x.first});   //push {frequncy,string}
             if(pq.size() > k)   //At any time we will have only 'k' elements in the minheap.
             {           
                 pq.pop();      //We remove the least frequent words whenever the size of minheap exceeds 'k' 
