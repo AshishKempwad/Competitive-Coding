@@ -40,3 +40,47 @@ int Solution::black(vector<string> &A)
     
     
 }
+
+-----------------------------------------------------------------------------------------------------------------
+
+int Solution::black(vector<string> &A) {
+    
+    int n = A.size();
+    int m = A[0].size();
+    int count=0;
+    queue<pair<int,int>>q;
+    vector<int>dx = {0,1,-1,0};
+    vector<int>dy = {1,0,0,-1};
+    vector<vector<bool>>vis(n,vector<bool>(m,false));
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++){
+            if(A[i][j]=='X' && vis[i][j]==false){
+                q.push({i,j});
+                vis[i][j]=true;
+                count++;
+                
+                while(!q.empty()){
+                    int x = q.front().first;
+                    int y = q.front().second;
+                    q.pop();
+                    
+                    for(int k=0;k<4;k++){
+                        int newx = x + dx[k];
+                        int newy = y + dy[k];
+                        
+                        if(newx >= 0 && newx < n && newy >=0 && newy < m && A[newx][newy]=='X' && vis[newx][newy]==false){
+                            vis[newx][newy]=true;
+                            q.push({newx,newy});
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    return count;
+}
+
+
+
