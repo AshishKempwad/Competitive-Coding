@@ -46,3 +46,44 @@ public:
         return l;
     }
 };
+-------------------------------------------------------------------------
+//Same Approach - Different method
+    class Solution {
+public:
+
+    bool canEatAll(vector<int>& piles, int mid, int hours){
+        long long int actualHours = 0;
+
+        for(auto &x : piles){
+          actualHours += x/mid;
+
+          if(x%mid!=0){   //If any remaining bananas then 1 more hr to eat them
+              actualHours++;
+          }
+        }
+
+        if(actualHours <= hours){
+            return true;
+        }
+        return false;
+    }
+
+    int minEatingSpeed(vector<int>& piles, int hours) {
+        int n = piles.size();
+        int l = 1;
+        int h = *max_element(begin(piles),end(piles)); // Maximum koko can eat in 1 hr
+        int res = -1;
+
+        while(l<=h){
+            int mid = l + (h - l)/2;   //Per hour I can eat mid no of bananas
+
+            if(canEatAll(piles,mid,hours)){
+                res=mid;
+                h=mid-1;
+            }else{
+                l=mid+1;
+            }
+        }
+        return res;
+    }
+};
