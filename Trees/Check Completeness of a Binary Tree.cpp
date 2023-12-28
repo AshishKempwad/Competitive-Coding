@@ -17,7 +17,7 @@ public:
        
        queue<TreeNode*>q;
        q.push(root);
-       bool past = false;   //To check if we have seen NULL is past
+       bool past = false;   //To check if we have seen NULL in past
        while(!q.empty()){
            TreeNode* curr = q.front();
            q.pop();
@@ -33,6 +33,6 @@ public:
            }
 
        }
-       return true;    
+       return true;    //we have never seen null before element, hence we return true as it is a complete tree
     }
 };
