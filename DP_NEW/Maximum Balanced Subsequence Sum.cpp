@@ -61,4 +61,33 @@ public:
     }
 };
 
-//Fails to pass all testcases even with DP. Optimal Solution
+//Fails to pass all testcases even with DP. Optimal Solution TC = O(nlogn)
+
+class Solution {
+public:
+    long long maxBalancedSubsequenceSum(vector<int>& nums) {
+        int n = nums.size();
+        map<int, long long>mp;  //{nums[i]-i, sum}
+        long long result = INT_MIN;
+
+        for(int i=0;i<n;i++){
+            auto it = mp.upper_bound(nums[i]-i);   //We need to find the smaller element hence we decrement it further
+            long long sum = nums[i];
+
+            if(it != mp.begin()){      //If its not the first element
+                it--;                  //We decrement because we need to find the smaller element from map
+                sum += it->second;     //Add its sum to the current sum
+            }
+
+            mp[nums[i]-i] = max(mp[nums[i]-i],sum);
+
+            it = mp.upper_bound(nums[i]-i);  //Need to find and delete all suach elements from map which are larger than current element and have their sum less than or equal to current element
+
+            while(it != mp.end()  && it->second <= sum){
+                mp.erase(it++);
+            }
+            result = max(result, sum);
+        }
+        return result;
+    }
+};
