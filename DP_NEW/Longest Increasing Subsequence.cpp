@@ -51,3 +51,25 @@ public:
         return solve(nums,0,-1,n);
     }
 };
+
+//Best Solution : Using Patience Sorting TC = O(nlogn)
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        //Patience Sorting
+        int n = nums.size();
+        vector<int>sortedArray;
+
+        for(int i=0;i<n;i++){
+          auto it = lower_bound(begin(sortedArray),end(sortedArray),nums[i]); //Lower_bound gets the index of element just greater than or equal to current element.
+
+          if(it == end(sortedArray)){            //If no such element exists
+              sortedArray.push_back(nums[i]);    //Add the element in sortedArray
+          }else{
+              *it = nums[i];   //Else replace that element with the found element 
+          } 
+        }
+
+        return sortedArray.size();
+    }
+};
