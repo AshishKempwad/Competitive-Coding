@@ -1,5 +1,5 @@
 //Recursion
-
+//TC = O(n^k)
 class Solution {
 public:
     
@@ -23,6 +23,7 @@ public:
 };
 
 //Recursion + Memo
+// TC = O(n*k)
 class Solution {
 public:
 
@@ -49,5 +50,25 @@ public:
         int n = nums.size();
         memset(dp,-1,sizeof(dp));
         return solve(0, nums, n);
+    }
+};
+
+
+//Optimal
+//TC : O(n)
+
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int n = nums.size();
+        int maxReachable = 0;
+
+        for(int i=0;i<n;i++){
+            if(i > maxReachable){
+                return false;
+            }
+            maxReachable = max(maxReachable, i + nums[i]);
+        }
+        return true;
     }
 };
