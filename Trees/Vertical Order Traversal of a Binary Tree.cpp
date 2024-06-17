@@ -74,8 +74,9 @@ hori_dist(key)     [levl_number, element]
 class Solution {
 public:
     
-    map<int,set<pair<int,int>>>mp; //Set stores the value in the sorted manner. Here we are using pair inside the set, so in this case it will sort 
-    // based on the first value and if the first value is similar it will sort based on the second value. Hence " set<pair<oint,int>> " is very useful data structure in such cases.
+     map<int, multiset<pair<int, int>>> mp; //MultiSet stores the value in the sorted manner. Here we are using pair inside the set, so in this case it will sort 
+    // based on the first value and if the first value is similar it will sort based on the second value. Hence " multiset<pair<int,int>> " is very useful data structure in such cases.
+   //multiset allows duplicates unlike sets.
     
     void dfs(TreeNode* root, int horizontal_dist,int vertical_dist)
     {
