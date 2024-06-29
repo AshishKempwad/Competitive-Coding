@@ -1,77 +1,61 @@
-/*
-Given an m x n 2d grid map of '1's (land) and '0's (water), return the number of islands.
 
-An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+class Solution {
+public:
+    void dfs(int i, int j,int n, int m, vector<vector<char>>& grid){
 
- 
+        if(i < 0 || i >= n || j < 0 || j >= m || grid[i][j] != '1'){
+            return;
+        }
+        grid[i][j] = '0';
+        dfs(i+1,j,n,m,grid);
+        dfs(i,j+1,n,m,grid);
+        dfs(i-1,j,n,m,grid);
+        dfs(i,j-1,n,m,grid);
+    }
 
-Example 1:
+    void bfs(int i, int j, int n, int m,vector<vector<char>>& grid){
 
-Input: grid = [
-  ["1","1","1","1","0"],
-  ["1","1","0","1","0"],
-  ["1","1","0","0","0"],
-  ["0","0","0","0","0"]
-]
-Output: 1
-Example 2:
+        int dx[4]={0,0,1,-1};
+        int dy[4]={1,-1,0,0};
 
-Input: grid = [
-  ["1","1","0","0","0"],
-  ["1","1","0","0","0"],
-  ["0","0","1","0","0"],
-  ["0","0","0","1","1"]
-]
-Output: 3
- 
+        queue<pair<int,int>>q;
+        q.push({i,j});
 
-Constraints:
+        while(!q.empty()){
+            pair<int,int>p = q.front();
+            q.pop();
 
-m == grid.length
-n == grid[i].length
-1 <= m, n <= 300
-grid[i][j] is '0' or '1'.
+            int x = p.first;
+            int y = p.second;
 
-*/
-int dx[8]={-1,-1,-1,0,0,1,1,1};
-int dy[8]={-1,0,1,-1,1,-1,0,1};
+            for(int k=0;k<4;k++){
+                int x_ = x + dx[k];
+                int y_ = y + dy[k];
 
-void dfs(vector<int> A[],int x,int y, int N, int M)
-{
-   A[x][y]=2;
-   int newx;
-   int newy;
-   for(int i=0;i<8;i++)
-   {
-       newx = x + dx[i];
-       newy = y + dy[i];
-       
-       if(newx>=0 && newx<N && newy>=0 && newy<M && A[newx][newy]==1)
-       {
-           dfs(A,newx,newy,N,M);
-       }
-   }
-    
-}
-
-
-int findIslands(vector<int> A[], int N, int M) 
-{
- 
-    int count=0;
-    for(int i=0;i<N;i++)
-    {
-        for(int j=0;j<M;j++)
-        {
-            int x = A[i][j];
-            if(A[i][j]==1)
-            {
-                dfs(A,i,j,N,M);
-                count++;
+                if(x_ >= 0 && x_ < n && y_ >= 0 && y_ < m && grid[x_][y_] == '1'){
+                    q.push({x_,y_});
+                    grid[x_][y_] = '0';
+                }
             }
         }
+
     }
-   
-   return count;
-    // Your code here
-}
+
+    int numIslands(vector<vector<char>>& grid) {
+        int n = grid.size();
+        int m = grid[0].size();
+        int count = 0;
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(grid[i][j] == '1'){
+                    //dfs();
+                    bfs(i,j,n,m,grid);
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+};
