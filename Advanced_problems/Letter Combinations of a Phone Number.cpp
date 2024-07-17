@@ -59,3 +59,57 @@ public:
         return res;
     }
 };
+
+
+//Using Backtracking TC = O(n*4^n)
+
+class Solution {
+public:
+
+    //Approach 2 : BackTracking
+
+    void solve(int idx, string &temp,string digits, unordered_map<char,string>mp,vector<string>&res){
+
+            if(idx >= digits.size()){
+                res.push_back(temp);
+                return;
+            }
+
+            char ch = digits[idx];
+            string letters = mp[ch];
+
+            for(int i=0;i<letters.size();i++){
+                temp.push_back(letters[i]);
+                solve(idx+1,temp,digits,mp,res);
+                temp.pop_back();
+            }
+
+    }
+
+
+    vector<string> letterCombinations(string digits) {
+
+        if(digits.size() == 0){
+            return {};
+        }
+        unordered_map<char,string>mp;
+        vector<string>res;
+
+        mp['2'] = "abc";
+        mp['3'] = "def";
+        mp['4'] = "ghi";
+        mp['5'] = "jkl";
+        mp['6'] = "mno";
+        mp['7'] = "pqrs";
+        mp['8'] = "tuv";
+        mp['9'] = "wxyz";
+
+        string temp = "";
+
+        solve(0,temp,digits,mp,res);
+
+        return res;
+    }
+};
+
+
