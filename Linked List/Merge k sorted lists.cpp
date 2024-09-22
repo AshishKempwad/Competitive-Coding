@@ -82,3 +82,56 @@ public:
        return mergeSort(lists,0,lists.size()-1);
     }
 };
+
+-----------------------------JAVA----------------------------------------
+
+    /**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+
+    public ListNode mergeTwoLists(ListNode h1, ListNode h2){
+        if(h1==null){
+            return h2;
+        }
+        if(h2==null){
+            return h1;
+        }
+
+        if(h1.val < h2.val){
+            h1.next = mergeTwoLists(h1.next,h2);
+            return h1;
+        }
+        else{
+            h2.next = mergeTwoLists(h1,h2.next);
+            return h2;
+        }
+    }
+    
+    public ListNode mergeSort(ListNode[] lists, int l, int h){
+          if(l==h){
+            return lists[l];
+          }
+
+          int mid = l + (h-l)/2;
+
+          ListNode left = mergeSort(lists,l,mid);
+          ListNode right = mergeSort(lists,mid+1,h);
+
+          return mergeTwoLists(left,right);
+    }
+
+    public ListNode mergeKLists(ListNode[] lists) {
+        if(lists.length == 0){
+            return null;
+        }
+        return mergeSort(lists,0,lists.length-1);
+    }
+}
