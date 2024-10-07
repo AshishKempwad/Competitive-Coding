@@ -153,3 +153,57 @@ public:
         return res;
     }
 };
+
+################################################ JAVA #########################################
+
+class Solution {
+    public int myAtoi(String s) {
+        int sizeOfString = s.length();
+        int i = 0;
+        boolean isNegative = false;
+
+        while(i < sizeOfString && s.charAt(i) == ' '){
+            i++;
+        }
+
+        if(i < sizeOfString && s.charAt(i) == '-'){
+            isNegative = true;
+            i++;
+        }else if(i < sizeOfString && s.charAt(i) == '+'){
+            isNegative = false;
+            i++;
+        }
+
+        long res = 0;
+        int curr = 0;
+
+        while(i<sizeOfString){
+
+            curr = s.charAt(i) - '0';
+            
+
+            if(curr >= 0 && curr <= 9){
+                res = res*10 + curr;
+            }else{
+                break;
+            }
+
+            if(res > Integer.MAX_VALUE){
+                if(isNegative){
+                    return Integer.MIN_VALUE;
+                }else{
+                    return Integer.MAX_VALUE;
+                }
+            }
+            i++;
+        }
+
+        if(isNegative){
+            return (int)res*-1;
+        }
+
+        return (int)res;
+        
+    }
+}
+
