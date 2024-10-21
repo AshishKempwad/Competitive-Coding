@@ -2,3 +2,6 @@
  because Java's Arrays.sort() method supports custom comparators only for objects, not for primitive types like int.)
 
 => Integer[] nums = Arrays.stream(arr).boxed().toArray(Integer[]::new);
+
+2)  Convert the sorted Integer array back to a primitive int array
+=> Arrays.stream(num).mapToInt(Integer::intValue).toArray();
