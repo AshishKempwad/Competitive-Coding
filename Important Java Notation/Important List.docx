@@ -1,0 +1,4 @@
+1)Convert int to Integer (we are converting the int[] array to an Integer[] array 
+ because Java's Arrays.sort() method supports custom comparators only for objects, not for primitive types like int.)
+
+=> Integer[] nums = Arrays.stream(arr).boxed().toArray(Integer[]::new);
