@@ -5,3 +5,23 @@
 
 2)  Convert the sorted Integer array back to a primitive int array
 => Arrays.stream(num).mapToInt(Integer::intValue).toArray();
+
+3) Build Graph - Two way directed graph (undirected) - For graph and tree questions
+
+    public void buildGraph(TreeNode root){
+            if(root == null){
+                return;
+            }
+            if(root.left != null){
+                graph.computeIfAbsent(root.val,k->new ArrayList<>()).add(root.left.val);
+                graph.computeIfAbsent(root.left.val, k->new ArrayList<>()).add(root.val);
+            }
+
+            if(root.right != null){
+                graph.computeIfAbsent(root.val,k->new ArrayList<>()).add(root.right.val);
+                graph.computeIfAbsent(root.right.val,k->new ArrayList<>()).add(root.val);
+            }
+
+            buildGraph(root.left);
+            buildGraph(root.right);
+        }
