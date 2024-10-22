@@ -246,4 +246,70 @@ public:
 };
 
 
+###########################################JAVA###################################################
+
+class Solution {
+
+    // Helper function to find the Lowest Common Ancestor (LCA)
+    TreeNode findLCA(TreeNode root, int startValue, int destValue) {
+        if (root == null || root.val == startValue || root.val == destValue) {
+            return root;
+        }
+
+        TreeNode left = findLCA(root.left, startValue, destValue);
+        TreeNode right = findLCA(root.right, startValue, destValue);
+
+        if (left != null && right != null) {
+            return root;
+        }
+
+        return (left == null) ? right : left;
+    }
+
+    // Helper function to find path from the given root to the target node
+    public boolean findPath(TreeNode root, int target, StringBuilder path) {
+        if (root == null) {
+            return false;
+        }
+        if (root.val == target) {
+            return true;
+        }
+
+        // Try left subtree
+        path.append('L');
+        if (findPath(root.left, target, path)) {
+            return true;
+        }
+        path.deleteCharAt(path.length() - 1);
+
+        // Try right subtree
+        path.append('R');
+        if (findPath(root.right, target, path)) {
+            return true;
+        }
+        path.deleteCharAt(path.length() - 1);
+
+        return false;
+    }
+
+    // Main function to get directions from startValue to destValue
+    public String getDirections(TreeNode root, int startValue, int destValue) {
+        TreeNode lca = findLCA(root, startValue, destValue);  // Find the LCA of start and destination nodes
+
+        StringBuilder pathToStart = new StringBuilder();
+        StringBuilder pathToDest = new StringBuilder();
+
+        findPath(lca, startValue, pathToStart);  // Find path from LCA to startValue
+        findPath(lca, destValue, pathToDest);    // Find path from LCA to destValue
+
+        // Build the result string: move up ('U') for each step in pathToStart, and then append pathToDest
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < pathToStart.length(); i++) {
+            res.append('U');
+        }
+
+        res.append(pathToDest.toString());
+        return res.toString();
+    }
+}
 
